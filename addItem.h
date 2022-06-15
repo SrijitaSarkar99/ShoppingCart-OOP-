@@ -208,24 +208,6 @@ void addGrocery()
 
                     // Update Store
                     updateGStore(eachItem);
-                    // cout << "\n\nStore Updated\n\n";
-
-                    //-- -- -- -- -Checking whether Item is already present in the cart-- -- -- -- -- -- -
-                    // int present = 0;
-                    // for (int gl = 0; gl < glen; gl++)
-                    // {
-                    //     cout << "\n"
-                    //          << GList[gl].getId() << "TEST";
-                    //     if (GList[gl].getId() == stoi(row[0]))
-                    //     {
-                    //         present = 1;
-                    //         GList[gl].updateQuantity(stoi(row[3]));
-                    //     }
-                    // }
-
-                    // // Item not present - new object will be added
-                    // if (present = 0)
-                    // {
                     ++glen;
                     GList.push_back(eachItem);
                     // cout << glen << ">>>";
@@ -326,8 +308,6 @@ void addStationary()
 
                     ++slen;
                     SList.push_back(eachItem);
-                    // cout << glen << ">>>";
-                    // }
                 }
             }
             i++;
