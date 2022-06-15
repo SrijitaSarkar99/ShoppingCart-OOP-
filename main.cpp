@@ -43,8 +43,15 @@ int main()
             checkout(); // done
             break;
         case 4:
+        {
             cout << "Message: Terminating Process.." << endl;
+            //-----------------Empty cart before Exiting------------
+            ofstream ofs;
+            ofs.open("./database/cart.csv", ofstream::out | ofstream::trunc);
+            ofs.close();
+            //------------------------------------------------------
             exit(1);
+        }
         default:
             cout << "Message: Wrong Choice..";
         }
