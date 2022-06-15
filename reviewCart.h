@@ -281,6 +281,7 @@ void updateCart(vector<string> row, int newq)
             if (newq == 0)
             {
                 flag = 1;
+                --cartNum;
                 continue;
             }
 

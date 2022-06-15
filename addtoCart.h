@@ -5,14 +5,16 @@
 #include "classCart.h"
 using namespace std;
 
-// void incrementGCart(vector<Grocery>, int);
-// void incrementSCart(vector<Stationary>, int);
+// int incrementGCart(vector<Grocery>, int);
+//  void incrementSCart(vector<Stationary>, int);
 
 int cartNum = 0;
 
 void addGtoCart(vector<Grocery> GList, int len)
 {
-    // incrementGCart(GList, len);
+    //------To check if element already present
+    // len = incrementGCart(GList, len);
+
     fstream fout;
 
     fout.open("./database/cart.csv", ios::out | ios::app);
@@ -56,7 +58,7 @@ void addStoCart(vector<Stationary> SList, int len)
     cout << "Message: Added to Cart";
 }
 
-// void incrementGCart(vector<Grocery> GList, int len)
+// int incrementGCart(vector<Grocery> GList, int len)
 // {
 //     fstream fin, fout;
 
@@ -88,7 +90,8 @@ void addStoCart(vector<Stationary> SList, int len)
 //                      << (stoi(row[4]) + GList[i].getQuantity()) << ","
 //                      << row[5] << "\n";
 
-//                 GList.erase(GList.begin() + i - 1);
+//                 auto it = GList.begin() + i - 1;
+//                 GList.erase(it);
 //                 --len;
 //             }
 //             else
@@ -108,5 +111,8 @@ void addStoCart(vector<Stationary> SList, int len)
 
 //     remove("./database/cart.csv");
 //     rename("./database/temp.csv", "./database/cart.csv");
+
+//     return len;
 // }
+
 #endif
