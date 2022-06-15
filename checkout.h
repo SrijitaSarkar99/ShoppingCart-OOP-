@@ -73,7 +73,7 @@ void checkout()
     }
     fin.close();
 
-    // remove("./database/cart.csv");
+    remove("./database/cart.csv");
 
     // Display total Price
     cout << "\t";

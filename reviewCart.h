@@ -9,6 +9,7 @@ void updateCart(vector<string>, int);
 
 void reviewCart()
 {
+
     // Header Format
     cout << "\t";
     for (int d = 1; d <= 85; d++)
