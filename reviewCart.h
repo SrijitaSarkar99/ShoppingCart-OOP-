@@ -9,6 +9,20 @@ void updateCart(vector<string>, int);
 
 void reviewCart()
 {
+    //-----------To Check whether file is empty---------------
+    int length;
+    ifstream filestr;
+
+    filestr.open("./database/cart.csv", ios::binary); // open your file
+    filestr.seekg(0, ios::end);                       // put the "cursor" at the end of the file
+    length = filestr.tellg();                         // find the position of the cursor
+    filestr.close();                                  // close your file
+
+    if (length == 0)
+    {
+        cout << "Message: Empty Cart" << endl;
+        return;
+    }
 
     // Header Format
     cout << "\t";
