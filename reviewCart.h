@@ -2,6 +2,8 @@
 #define REVIEW_H
 
 #include <bits/stdc++.h>
+#include "inputValidation.h"
+#include "classCart.h"
 using namespace std;
 
 void updateStore(vector<string>, int, char);
@@ -89,21 +91,31 @@ void reviewCart()
         cout << "-";
     cout << endl;
 
-    char ch = 'Y';
+    int ch = 0;
     int no = 0, newq;
 
     while (true)
     {
-        cout << "Do you want to reduce any item? (Enter Y to edit): ";
-        cin >> ch;
-        if (ch != 'Y' && ch != 'y')
+        cout << "\nDo you want to reduce any item? (Enter 1 to edit): ";
+        ch = input_valid();
+        if (ch != 1)
+        {
+            cout << "\nRedirecting back to Menu..." << endl;
             break;
+        }
 
         cout << "Enter the No.: ";
-        cin >> no;
+        no = input_valid();
+
+        //-----
+        if (no > cartNum)
+        {
+            cout << "Message: Item not present in Cart" << endl;
+            continue;
+        }
 
         cout << "Enter the new quantity(Enter 0 to delete the item): ";
-        cin >> newq;
+        newq = input_valid();
         if (newq < 0)
         {
             cout << "Message: Invalid quantity" << endl;

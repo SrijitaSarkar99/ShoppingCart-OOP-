@@ -4,6 +4,7 @@
 #include <bits/stdc++.h>
 #include "classCart.h"
 #include "addtoCart.h"
+#include "inputValidation.h"
 using namespace std;
 
 void displayStock(int);
@@ -29,7 +30,8 @@ void addItem()
          << "-------------------------"
          << endl;
     cout << "Enter the category you want to buy: ";
-    cin >> cch;
+    cch = input_valid();
+
     switch (cch)
     {
     case 1:
@@ -150,7 +152,7 @@ void addGrocery()
     while (true)
     {
         cout << "\nEnter id of the Item you want to buy\n(Enter '0' to go back to menu): " << flush;
-        cin >> iid;
+        iid = input_valid();
 
         if (!iid)
         {
@@ -193,7 +195,7 @@ void addGrocery()
             {
                 int quantity;
                 cout << "\nEnter the quantity you want to buy: ";
-                cin >> quantity;
+                quantity = input_valid();
                 if (quantity < 1)
                     cout << "\nMessage: Invalid Quantity";
                 else
@@ -246,7 +248,7 @@ void addStationary()
     while (true)
     {
         cout << "\nEnter id of the Item you want to buy\n(Enter '0' to go back to menu): " << flush;
-        cin >> iid;
+        iid = input_valid();
 
         if (!iid)
         {
@@ -289,7 +291,7 @@ void addStationary()
             {
                 int quantity;
                 cout << "\nEnter the quantity you want to buy: ";
-                cin >> quantity;
+                quantity = input_valid();
                 if (quantity < 1)
                     cout << "\nMessage: Invalid Quantity";
                 else

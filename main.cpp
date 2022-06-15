@@ -2,6 +2,7 @@
 #include "addItem.h"
 #include "reviewCart.h"
 #include "checkout.h"
+#include "inputValidation.h"
 
 using namespace std;
 
@@ -28,7 +29,7 @@ int main()
              << "-------------------------"
              << endl;
         cout << "Enter your choice: ";
-        cin >> ch1;
+        ch1 = input_valid();
 
         switch (ch1)
         {
