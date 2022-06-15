@@ -117,6 +117,9 @@ void displayStock(int cch)
                  << row[3] << endl;
             i++;
         }
+        for (int d = 1; d <= 60; d++)
+            cout << "-";
+        cout << endl;
         fin.close();
     }
     else
