@@ -109,11 +109,12 @@ void showWishlist()
         }
 
         cout << "\t| "
-             << right << setw(2) << setfill(' ') << i << ". "
-             << setw(4) << setfill(' ') << row[0]
-             << left << setw(30) << setfill(' ') << row[1]
-             << right << setw(2) << setfill(' ') << "|" << endl;
+             << setw(2) << setfill(' ') << i << ". "
+             << left << setw(30) << setfill(' ') << row[2];
+
+        i++;
     }
+    fin.close();
 }
 
 #endif
