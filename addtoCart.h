@@ -5,15 +5,15 @@
 #include "classCart.h"
 using namespace std;
 
-// int incrementGCart(vector<Grocery>, int);
-//  void incrementSCart(vector<Stationary>, int);
+int incrementGCart(vector<Grocery>, int);
+int incrementSCart(vector<Stationary>, int);
 
 int cartNum = 0;
 
-void addGtoCart(vector<Grocery> GList, int len)
+void addGtoCart(vector<Grocery> GList, int l)
 {
     //------To check if element already present
-    // len = incrementGCart(GList, len);
+    int len = incrementGCart(GList, l);
 
     fstream fout;
 
@@ -35,9 +35,9 @@ void addGtoCart(vector<Grocery> GList, int len)
     cout << "Message: Added to Cart";
 }
 
-void addStoCart(vector<Stationary> SList, int len)
+void addStoCart(vector<Stationary> SList, int l)
 {
-    // incrementSCart(SList, len);
+    int len = incrementSCart(SList, l);
     fstream fout;
 
     fout.open("./database/cart.csv", ios::out | ios::app);
@@ -58,61 +58,128 @@ void addStoCart(vector<Stationary> SList, int len)
     cout << "Message: Added to Cart";
 }
 
-// int incrementGCart(vector<Grocery> GList, int len)
-// {
-//     fstream fin, fout;
+int incrementGCart(vector<Grocery> GList, int len)
+{
 
-//     fin.open("./database/cart.csv", ios::in);
-//     fout.open("./database/temp.csv", ios::out);
+    fstream fin, fout;
+    fin.open("./database/cart.csv", ios::in);
+    fout.open("./database/temp.csv", ios::out);
 
-//     vector<string> row;
-//     string line, word;
+    if (fin)
+    {
+        vector<string> row;
+        string line, word;
 
-//     while (getline(fin, line))
-//     {
-//         row.clear();
+        while (getline(fin, line))
+        {
+            row.clear();
 
-//         stringstream s(line);
+            stringstream s(line);
 
-//         while (getline(s, word, ','))
-//         {
-//             row.push_back(word);
-//         }
+            // Cart details is stored in vector row
+            while (getline(s, word, ','))
+            {
+                row.push_back(word);
+            }
 
-//         for (int i = 0; i < len; i++)
-//         {
-//             if (row[3] == "Grocery" && stoi(row[1]) == GList[i].getId())
-//             {
-//                 fout << row[0] << ","
-//                      << row[1] << ","
-//                      << row[2] << ","
-//                      << row[3] << ","
-//                      << (stoi(row[4]) + GList[i].getQuantity()) << ","
-//                      << row[5] << "\n";
+            int alexist = -1;
+            for (int i = 0; i < len; i++)
+            {
+                if (stoi(row[1]) == GList[i].getId() && GList[i].getCategory() == "Grocery")
+                {
+                    stringstream newquan;
+                    int nq = GList[i].getQuantity() + stoi(row[4]);
+                    newquan << nq;
 
-//                 auto it = GList.begin() + i - 1;
-//                 GList.erase(it);
-//                 --len;
-//             }
-//             else
-//             {
-//                 fout << row[0] << ","
-//                      << row[1] << ","
-//                      << row[2] << ","
-//                      << row[3] << ","
-//                      << row[4] << ","
-//                      << row[5] << "\n";
-//             }
-//         }
-//     }
+                    row[4] = newquan.str();
+                    alexist = i;
+                    break;
+                }
+            }
 
-//     fin.close();
-//     fout.close();
+            if (alexist > -1)
+            {
+                auto it = GList.begin() + alexist;
+                GList.erase(it);
+                --len;
+            }
+            fout << row[0] << ","
+                 << row[1] << ","
+                 << row[2] << ","
+                 << row[3] << ","
+                 << row[4] << ","
+                 << row[5] << "\n";
+        }
+    }
+    fin.close();
+    fout.close();
 
-//     remove("./database/cart.csv");
-//     rename("./database/temp.csv", "./database/cart.csv");
+    remove("./database/cart.csv");
+    rename("./database/temp.csv", "./database/cart.csv");
 
-//     return len;
-// }
+    return len;
+}
+
+int incrementSCart(vector<Stationary> SList, int len)
+{
+
+    fstream fin, fout;
+    fin.open("./database/cart.csv", ios::in);
+    fout.open("./database/temp.csv", ios::out);
+
+    if (fin)
+    {
+        vector<string> row;
+        string line, word;
+
+        while (getline(fin, line))
+        {
+            row.clear();
+
+            stringstream s(line);
+
+            // Cart details is stored in vector row
+            while (getline(s, word, ','))
+            {
+                row.push_back(word);
+            }
+
+            int alexist = -1;
+            for (int i = 0; i < len; i++)
+            {
+                if (stoi(row[1]) == SList[i].getId() && SList[i].getCategory() == "Stationary")
+                {
+                    stringstream newquan;
+                    int nq = SList[i].getQuantity() + stoi(row[4]);
+                    newquan << nq;
+
+                    row[4] = newquan.str();
+                    alexist = i;
+                    break;
+                }
+            }
+
+            if (alexist > -1)
+            {
+                auto it = SList.begin() + alexist;
+                SList.erase(it);
+                --len;
+            }
+            fout << row[0] << ","
+                 << row[1] << ","
+                 << row[2] << ","
+                 << row[3] << ","
+                 << row[4] << ","
+                 << row[5] << "\n";
+        }
+    }
+    fin.close();
+    fout.close();
+
+    remove("./database/cart.csv");
+    rename("./database/temp.csv", "./database/cart.csv");
+
+    return len;
+}
 
 #endif

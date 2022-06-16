@@ -66,6 +66,10 @@ public:
     {
         item_quantity = item_quantity - num;
     }
+    void addQuantity(int n)
+    {
+        item_quantity = item_quantity + n;
+    }
 };
 
 class Stationary : public Item

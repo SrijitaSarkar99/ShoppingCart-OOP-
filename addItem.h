@@ -210,10 +210,26 @@ void addGrocery()
 
                     // Update Store
                     updateGStore(eachItem);
-                    ++glen;
-                    GList.push_back(eachItem);
-                    // cout << glen << ">>>";
+
+                    // To handle repeated products
+                    // int flag = 0;
+
+                    // for (int j = 0; j < glen; i++)
+                    // {
+                    //     if (eachItem.getId() == GList[j].getId())
+                    //     {
+                    //         GList[j].addQuantity(eachItem.getQuantity());
+                    //         flag = 1;
+                    //     }
                     // }
+                    // if (flag == 0)
+                    // {
+                    //     GList.push_back(eachItem);
+                    //     ++glen;
+                    // }
+
+                    GList.push_back(eachItem);
+                    ++glen;
                 }
             }
             i++;
