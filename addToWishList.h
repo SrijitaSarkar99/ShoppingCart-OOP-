@@ -83,7 +83,7 @@ void showWishlist()
 
     fstream fin;
 
-    fin.open("./database/cart.csv", ios::in);
+    fin.open("./database/wishList.csv", ios::in);
 
     vector<string> row;
     string line, word;
@@ -110,7 +110,7 @@ void showWishlist()
 
         cout << "\t| "
              << setw(2) << setfill(' ') << i << ". "
-             << left << setw(30) << setfill(' ') << row[2];
+             << left << setw(30) << setfill(' ') << row[1] << endl;
 
         i++;
     }
