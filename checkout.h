@@ -27,13 +27,13 @@ void checkout()
 
     // Header Format
     cout << "\t";
-    for (int d = 1; d <= 85; d++)
+    for (int d = 1; d <= 100; d++)
         cout << "-";
     cout << endl;
-    cout << "\t|" << setw(42) << setfill(' ') << "BILL"
-         << setw(42) << setfill(' ') << "|" << endl;
+    cout << "\t|" << setw(49) << setfill(' ') << "BILL"
+         << setw(50) << setfill(' ') << "|" << endl;
     cout << "\t";
-    for (int d = 1; d <= 85; d++)
+    for (int d = 1; d <= 100; d++)
         cout << "-";
     cout << endl;
     cout << "\t| "
@@ -42,10 +42,11 @@ void checkout()
          << left << setw(30) << setfill(' ') << "Item Name"
          << setw(20) << setfill(' ') << "Category"
          << setw(15) << setfill(' ') << "Quantity"
-         << "Price(Rs.)"
-         << right << setw(4) << setfill(' ') << "|" << endl;
+         << setw(15) << setfill(' ') << "Price(Rs.)"
+         << setw(10) << setfill(' ') << "Total Price"
+         << "  |" << endl;
     cout << "\t";
-    for (int d = 1; d <= 85; d++)
+    for (int d = 1; d <= 100; d++)
         cout << "-";
     cout << endl;
 
@@ -82,7 +83,8 @@ void checkout()
              << left << setw(30) << setfill(' ') << row[2]
              << setw(20) << setfill(' ') << row[3]
              << setw(15) << setfill(' ') << row[4]
-             << setw(10) << setfill(' ') << fixed << setprecision(2) << stof(row[5])
+             << setw(15) << setfill(' ') << fixed << setprecision(2) << stof(row[5])
+             << setw(10) << setfill(' ') << fixed << setprecision(2) << (stof(row[5]) * stof(row[4]))
              << right << setw(4) << setfill(' ') << "|" << endl;
 
         totalPrice = totalPrice + (stoi(row[4])) * (stof(row[5]));
@@ -100,16 +102,16 @@ void checkout()
 
     // Display total Price
     cout << "\t";
-    for (int d = 1; d <= 85; d++)
+    for (int d = 1; d <= 100; d++)
         cout << "-";
     cout << endl;
     cout << "\t|"
-         << setw(40) << setfill(' ') << "||"
+         << setw(71) << setfill(' ') << "||"
          << "Total Price:  "
          << fixed << setprecision(2) << totalPrice
-         << right << setw(23) << setfill(' ') << "|" << endl;
+         << right << setw(8) << setfill(' ') << "|" << endl;
     cout << "\t";
-    for (int d = 1; d <= 85; d++)
+    for (int d = 1; d <= 100; d++)
         cout << "-";
     cout << endl;
 

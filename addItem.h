@@ -5,6 +5,7 @@
 #include "classCart.h"
 #include "addtoCart.h"
 #include "inputValidation.h"
+#include "addToWishList.h"
 using namespace std;
 
 void displayStock(int);
@@ -151,8 +152,14 @@ void addGrocery()
 
     while (true)
     {
-        cout << "\nEnter id of the Item you want to buy\n(Enter '0' to go back to menu): " << flush;
+        cout << "\nEnter id of the Item you want to buy\n(Enter '0' to go back to menu)\n(Enter 100 to put item into wishlist): " << flush;
         iid = input_valid();
+
+        if (iid == 100)
+        {
+            addtoWishList('G');
+            continue;
+        }
 
         if (!iid)
         {
@@ -263,8 +270,14 @@ void addStationary()
 
     while (true)
     {
-        cout << "\nEnter id of the Item you want to buy\n(Enter '0' to go back to menu): " << flush;
+        cout << "\nEnter id of the Item you want to buy\n(Enter '0' to go back to menu)\n(Enter '100' to add to wishlist) " << flush;
         iid = input_valid();
+
+        if (iid == 100)
+        {
+            addtoWishList('S');
+            continue;
+        }
 
         if (!iid)
         {

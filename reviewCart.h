@@ -28,13 +28,13 @@ void reviewCart()
 
     // Header Format
     cout << "\t";
-    for (int d = 1; d <= 85; d++)
+    for (int d = 1; d <= 100; d++)
         cout << "-";
     cout << endl;
-    cout << "\t|" << setw(42) << setfill(' ') << "CART"
-         << setw(42) << setfill(' ') << "|" << endl;
+    cout << "\t|" << right << setw(49) << setfill(' ') << "CART"
+         << setw(50) << setfill(' ') << "|" << endl;
     cout << "\t";
-    for (int d = 1; d <= 85; d++)
+    for (int d = 1; d <= 100; d++)
         cout << "-";
     cout << endl;
     cout << "\t| "
@@ -43,10 +43,11 @@ void reviewCart()
          << left << setw(30) << setfill(' ') << "Item Name"
          << setw(20) << setfill(' ') << "Category"
          << setw(15) << setfill(' ') << "Quantity"
-         << "Price(Rs.)"
-         << right << setw(4) << setfill(' ') << "|" << endl;
+         << setw(15) << setfill(' ') << "Price(Rs.)"
+         << setw(10) << setfill(' ') << "Total Price"
+         << "  |" << endl;
     cout << "\t";
-    for (int d = 1; d <= 85; d++)
+    for (int d = 1; d <= 100; d++)
         cout << "-";
     cout << endl;
 
@@ -81,13 +82,14 @@ void reviewCart()
              << left << setw(30) << setfill(' ') << row[2]
              << setw(20) << setfill(' ') << row[3]
              << setw(15) << setfill(' ') << row[4]
-             << setw(10) << setfill(' ') << fixed << setprecision(2) << row[5]
+             << setw(15) << setfill(' ') << fixed << setprecision(2) << row[5]
+             << setw(10) << setfill(' ') << fixed << setprecision(2) << (stof(row[5]) * stof(row[4]))
              << right << setw(4) << setfill(' ') << "|" << endl;
     }
     fin.close();
 
     cout << "\t";
-    for (int d = 1; d <= 85; d++)
+    for (int d = 1; d <= 100; d++)
         cout << "-";
     cout << endl;
 

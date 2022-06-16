@@ -3,6 +3,7 @@
 #include "reviewCart.h"
 #include "checkout.h"
 #include "inputValidation.h"
+#include "addToWishList.h"
 
 using namespace std;
 
@@ -24,7 +25,10 @@ int main()
              << "\n\t\t\t\t"
              << "| 3. Checkout\t\t|"
              << "\n\t\t\t\t"
-             << "| 4. Exit Process\t|";
+             << "| 4. Exit Process\t|"
+             << "\n\t\t\t\t"
+             << "| 5. WishList\t\t|";
+
         cout << "\n\t\t\t\t"
              << "-------------------------"
              << endl;
@@ -52,6 +56,9 @@ int main()
             //------------------------------------------------------
             exit(1);
         }
+        case 5:
+            showWishlist();
+            break;
         default:
             cout << "Message: Wrong Choice..";
         }
