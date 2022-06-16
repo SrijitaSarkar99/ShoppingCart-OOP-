@@ -19,7 +19,7 @@ void addtoWishList(char c)
 
     // Open an existing file
     if (c == 'G')
-        fin.open("./database/Stationary.csv", ios::in);
+        fin.open("./database/Grocery.csv", ios::in);
     else
         fin.open("./database/Stationary.csv", ios::in);
 
@@ -29,7 +29,7 @@ void addtoWishList(char c)
         return;
     }
 
-    cout << "\nEnter the if the Item you want to wishList: ";
+    cout << "\nEnter the id of the Item you want to wishList: ";
     int ch = input_valid();
 
     while (getline(fin, line))
