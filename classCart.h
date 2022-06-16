@@ -62,10 +62,6 @@ public:
     {
         return item_price;
     }
-    void updateQuantity(int num)
-    {
-        item_quantity = item_quantity - num;
-    }
     void addQuantity(int n)
     {
         item_quantity = item_quantity + n;
@@ -110,9 +106,10 @@ public:
     {
         return item_price;
     }
-    void updateQuantity(int num)
+
+    void addQuantity(int n)
     {
-        item_quantity = item_quantity - num;
+        item_quantity = item_quantity + n;
     }
 };
 

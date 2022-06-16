@@ -159,7 +159,10 @@ void addGrocery()
             cout << "\nMessage: Redirecting to Main Menu.." << endl;
             fin.close();
             if (glen > 0)
+            {
+                // glen = checkrepeat(GList, glen);
                 addGtoCart(GList, glen);
+            }
             return;
         }
         if (iid > count || iid < 0)
@@ -212,24 +215,21 @@ void addGrocery()
                     updateGStore(eachItem);
 
                     // To handle repeated products
-                    // int flag = 0;
+                    int flag = 0;
 
-                    // for (int j = 0; j < glen; i++)
-                    // {
-                    //     if (eachItem.getId() == GList[j].getId())
-                    //     {
-                    //         GList[j].addQuantity(eachItem.getQuantity());
-                    //         flag = 1;
-                    //     }
-                    // }
-                    // if (flag == 0)
-                    // {
-                    //     GList.push_back(eachItem);
-                    //     ++glen;
-                    // }
-
-                    GList.push_back(eachItem);
-                    ++glen;
+                    for (int j = 0; j < glen; j++)
+                    {
+                        if (eachItem.getId() == GList[j].getId())
+                        {
+                            GList[j].addQuantity(eachItem.getQuantity());
+                            flag = 1;
+                        }
+                    }
+                    if (flag == 0)
+                    {
+                        GList.push_back(eachItem);
+                        ++glen;
+                    }
                 }
             }
             i++;
@@ -324,8 +324,22 @@ void addStationary()
                     updateSStore(eachItem);
                     // cout << "\n\nStore Updated\n\n";
 
-                    ++slen;
-                    SList.push_back(eachItem);
+                    // To handle repeated products
+                    int flag = 0;
+
+                    for (int j = 0; j < slen; j++)
+                    {
+                        if (eachItem.getId() == SList[j].getId())
+                        {
+                            SList[j].addQuantity(eachItem.getQuantity());
+                            flag = 1;
+                        }
+                    }
+                    if (flag == 0)
+                    {
+                        SList.push_back(eachItem);
+                        ++slen;
+                    }
                 }
             }
             i++;
